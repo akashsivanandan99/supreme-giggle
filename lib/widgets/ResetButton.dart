@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 
 class ResetButton extends StatelessWidget {
-  Function reset;
-  String text;
+  const ResetButton({
+    Key? key,
+    required this.text,
+    required this.reset,
+  }) : super(key: key);
 
-  ResetButton(this.reset, this.text);
+  final String text;
+  final VoidCallback reset;
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       onPressed: reset,
-      color: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: new BorderRadius.circular(30.0),
+      style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(30.0)),
+          )),
+      child: Text(
+        "Reset",
+        style: TextStyle(color: Colors.black),
       ),
-      child: Text("Reset"),
     );
   }
 }

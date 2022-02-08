@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-
 class GridButton extends StatelessWidget {
-  Function click;
+  // Function click;
+  VoidCallback click;
   String text;
   Color color;
-  ButtonStyle style;
   GridButton(this.text, this.click, this.color);
-
-
-
 
   @override
   Widget build(BuildContext context) {
-    style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 30,fontWeight: FontWeight.bold),primary: color, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)));
-
     return ElevatedButton(
       child: Text(
         text,
       ),
-      style: style,
+      style: ButtonStyle(
+          textStyle: MaterialStateProperty.all(TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          )),
+          backgroundColor: MaterialStateProperty.all(color),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0)))),
       onPressed: click,
     );
   }

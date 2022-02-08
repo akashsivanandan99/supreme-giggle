@@ -4,6 +4,7 @@ import 'widgets/Menu.dart';
 import 'widgets/MyTitle.dart';
 import 'widgets/Grid.dart';
 import 'dart:math' as math;
+
 class Board extends StatefulWidget {
   @override
   _BoardState createState() => _BoardState();
@@ -16,18 +17,18 @@ class _BoardState extends State<Board> {
   static const duration = const Duration(seconds: 1);
   int secondsPassed = 0;
   bool isActive = false;
-  Timer timer;
+  Timer timer = Timer(Duration(seconds: 1), () {});
 
   @override
   void initState() {
     super.initState();
     numbers.shuffle();
+    startTime();
   }
 
   @override
   Widget build(BuildContext context) {
-
-    Size size = const Size( 1100.0,  1100.0);
+    Size size = const Size(800.0, 800.0);
     //final size = MediaQuery.of(context).size;
     if (timer == null) {
       timer = Timer.periodic(duration, (Timer t) {
@@ -43,7 +44,12 @@ class _BoardState extends State<Board> {
           children: <Widget>[
             MyTitle(size),
             Grid(numbers, size, clickGrid, color),
-            Menu(reset, move, secondsPassed, size),
+            Menu(
+              reset: reset,
+              move: move,
+              secondsPassed: secondsPassed,
+              size: size,
+            )
           ],
         ),
       ),
@@ -59,7 +65,8 @@ class _BoardState extends State<Board> {
         (index - 4 >= 0 && numbers[index - 4] == 0) ||
         (index + 4 < 16 && numbers[index + 4] == 0)) {
       setState(() {
-        color=Color((math.Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(0.7);
+        // color = Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
+        //     .withOpacity(0.7);
         move++;
         numbers[numbers.indexOf(0)] = numbers[index];
         numbers[index] = 0;
@@ -118,16 +125,16 @@ class _BoardState extends State<Board> {
                       ),
                       SizedBox(
                         width: 220.0,
-                        child: RaisedButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            "Close",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          color: Colors.blue,
-                        ),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              "Close",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            style:
+                                ElevatedButton.styleFrom(primary: Colors.blue)),
                       )
                     ],
                   ),

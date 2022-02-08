@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 
 class Move extends StatelessWidget {
-
   int move;
 
   Move(this.move);
@@ -14,10 +12,7 @@ class Move extends StatelessWidget {
       child: Text(
         "Move: ${move}",
         style: TextStyle(
-            color: Colors.white,
-            decoration: TextDecoration.none,
-            fontSize: 18
-        ),
+            color: Colors.white, decoration: TextDecoration.none, fontSize: 18),
       ),
     );
   }
