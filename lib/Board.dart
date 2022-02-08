@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'widgets/Menu.dart';
 import 'widgets/MyTitle.dart';
 import 'widgets/Grid.dart';
-import 'dart:math' as math;
 
 class Board extends StatefulWidget {
   @override
@@ -13,8 +12,7 @@ class Board extends StatefulWidget {
 class _BoardState extends State<Board> {
   var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   int move = 0;
-  Color color = Colors.white;
-  static const duration = const Duration(seconds: 1);
+  Color color = Colors.deepPurple;
   int secondsPassed = 0;
   bool isActive = false;
   Timer timer = Timer(Duration(seconds: 1), () {});
@@ -23,18 +21,13 @@ class _BoardState extends State<Board> {
   void initState() {
     super.initState();
     numbers.shuffle();
-    startTime();
+    Timer.periodic(Duration(seconds: 1), (Timer t) => startTime());
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = const Size(800.0, 800.0);
     //final size = MediaQuery.of(context).size;
-    if (timer == null) {
-      timer = Timer.periodic(duration, (Timer t) {
-        startTime();
-      });
-    }
 
     return SafeArea(
       child: Container(
