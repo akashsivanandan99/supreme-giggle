@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 
 class Time extends StatelessWidget {
-
   int secondsPassed;
 
   Time(this.secondsPassed);
@@ -16,7 +14,7 @@ class Time extends StatelessWidget {
         style: TextStyle(
           fontSize: 18,
           decoration: TextDecoration.none,
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
     );
