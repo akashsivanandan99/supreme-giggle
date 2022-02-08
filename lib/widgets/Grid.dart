@@ -1,6 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'GridButton.dart';
-import 'dart:math' as math;
 import 'package:slidingpuzzle/themes/color_palettes.dart';
 
 class Grid extends StatelessWidget {
@@ -14,6 +15,7 @@ class Grid extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = size.height;
     var width = size.width;
+    var random = Random();
     return Container(
       height: height * 0.60,
       width: width * 0.60,
@@ -31,9 +33,9 @@ class Grid extends StatelessWidget {
                 ? GridButton("${numbers[index]}", () {
                     clickGrid(index);
                   },
-                    Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-                        .withOpacity(0.7))
-                // ((retro_colors..shuffle()).first))
+                    // Color((Random().nextDouble() * 0xFFFFFF).toInt())
+                    //     .withOpacity(0.7))
+                    retro_colors[random.nextInt(retro_colors.length)])
                 : SizedBox.shrink();
           },
         ),
