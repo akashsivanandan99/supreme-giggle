@@ -21,7 +21,7 @@ class GridButton extends StatelessWidget {
           )),
           backgroundColor: MaterialStateProperty.all(color),
           shape: MaterialStateProperty.all(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50.0)))),
+              borderRadius: BorderRadius.circular(100.0)))),
       onPressed: click,
     );
   }

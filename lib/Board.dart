@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'widgets/Menu.dart';
 import 'widgets/MyTitle.dart';
@@ -17,6 +18,9 @@ class _BoardState extends State<Board> {
   bool isActive = false;
   Timer timer = Timer(Duration(seconds: 1), () {});
 
+  Color _color = Colors.green;
+
+
   @override
   void initState() {
     super.initState();
@@ -30,9 +34,15 @@ class _BoardState extends State<Board> {
     //final size = MediaQuery.of(context).size;
 
     return SafeArea(
-      child: Container(
+      child: AnimatedContainer(
         height: size.height,
-        color: color,
+        decoration: BoxDecoration(
+          color: _color,
+
+        ),
+        duration: const Duration(seconds: 1),
+        curve: Curves.fastOutSlowIn,
+
         child: Column(
           children: <Widget>[
             MyTitle(size),
@@ -58,6 +68,20 @@ class _BoardState extends State<Board> {
         (index - 4 >= 0 && numbers[index - 4] == 0) ||
         (index + 4 < 16 && numbers[index + 4] == 0)) {
       setState(() {
+        final random = Random();
+
+        // Generate a random width and height.
+
+        // Generate a random color.
+        _color = Color.fromRGBO(
+          random.nextInt(256),
+          random.nextInt(256),
+          random.nextInt(256),
+          1,
+        );
+
+
+
         // color = Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
         //     .withOpacity(0.7);
         move++;
