@@ -58,7 +58,7 @@ class Menu extends StatelessWidget {
             reset: reset,
             text: 'Reset',
           ),
-          Move(move),
+          Move(move: move),
           Time(secondsPassed),
         ],
       ),
