@@ -18,8 +18,7 @@ class _BoardState extends State<Board> {
   bool isActive = false;
   Timer timer = Timer(Duration(seconds: 1), () {});
 
-  Color _color = Colors.green;
-
+  Color _color = Colors.white;
 
   @override
   void initState() {
@@ -38,11 +37,9 @@ class _BoardState extends State<Board> {
         height: size.height,
         decoration: BoxDecoration(
           color: _color,
-
         ),
         duration: const Duration(seconds: 1),
         curve: Curves.fastOutSlowIn,
-
         child: Column(
           children: <Widget>[
             MyTitle(size),
@@ -73,14 +70,12 @@ class _BoardState extends State<Board> {
         // Generate a random width and height.
 
         // Generate a random color.
-        _color = Color.fromRGBO(
-          random.nextInt(256),
-          random.nextInt(256),
-          random.nextInt(256),
-          1,
-        );
-
-
+        // _color = Color.fromRGBO(
+        //   random.nextInt(256),
+        //   random.nextInt(256),
+        //   random.nextInt(256),
+        //   1,
+        // );
 
         // color = Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
         //     .withOpacity(0.7);
