@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Move extends StatelessWidget {
-  int move;
+  const Move({Key? key, required this.move}) : super(key: key);
 
-  Move(this.move);
+  final int move;
 
   @override
   Widget build(BuildContext context) {
