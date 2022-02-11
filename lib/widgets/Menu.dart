@@ -30,7 +30,7 @@ class Menu extends StatelessWidget {
             text: 'Reset',
           ),
           Move(move: move),
-          Time(secondsPassed),
+          Time(secondsPassed: secondsPassed),
         ],
       ),
     );
