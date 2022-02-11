@@ -29,20 +29,6 @@ class Grid extends StatelessWidget {
           ),
           itemCount: numbers.length,
           itemBuilder: (context, index) {
-            // return numbers[index] != 0
-            //     ? GridButton(
-            //         text: ,"${numbers[index]}",
-            //         () {
-            //           clickGrid(index);
-            //         },
-            //         Color((Random().nextDouble() * 0xFFFFFF).toInt())
-            //             .withOpacity(0.7))
-            //         color: retro_colors[random.nextInt(retro_colors.length)],
-            //         click: () {
-
-            //           },
-            //       )
-            //     : SizedBox.shrink();
             return numbers[index] != 0
                 ? GridButton(
                     click: () {
