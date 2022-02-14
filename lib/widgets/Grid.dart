@@ -5,12 +5,22 @@ import 'GridButton.dart';
 import 'package:slidingpuzzle/themes/color_palettes.dart';
 
 class Grid extends StatelessWidget {
+  Grid({
+    Key? key,
+    required this.opacity,
+    required this.numbers,
+    required this.clickGrid,
+    required this.color,
+    this.size,
+    this.changeColour,
+  }) : super(key: key);
+
   var numbers = [];
   bool opacity;
   final size;
   Function clickGrid;
   Color color;
-  Grid(this.numbers, this.size, this.clickGrid, this.color, this.opacity);
+  VoidCallback? changeColour;
 
   @override
   Widget build(BuildContext context) {
