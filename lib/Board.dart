@@ -21,7 +21,7 @@ class _BoardState extends State<Board> {
   // double v = 1.0;
   bool opacity = true;
   int count = 0;
-  Color _color = Color.fromRGBO(31, 26, 29, 1);
+  Color _color = Colors.white;
 
   @override
   void initState() {
@@ -45,8 +45,15 @@ class _BoardState extends State<Board> {
         curve: Curves.fastOutSlowIn,
         child: Column(
           children: <Widget>[
-            MyTitle(size),
-            Grid(numbers, size, clickGrid, color, opacity),
+            MyTitle(
+              size: size,
+            ),
+            Grid(
+                numbers: numbers,
+                size: size,
+                clickGrid: clickGrid,
+                color: color,
+                opacity: opacity),
             Menu(
               reset: reset,
               move: move,
