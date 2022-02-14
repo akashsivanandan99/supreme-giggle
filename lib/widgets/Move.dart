@@ -12,7 +12,7 @@ class Move extends StatelessWidget {
       child: Text(
         "Move: ${move}",
         style: TextStyle(
-            color: Colors.white, decoration: TextDecoration.none, fontSize: 18),
+            color: Colors.black, decoration: TextDecoration.none, fontSize: 18),
       ),
     );
   }
