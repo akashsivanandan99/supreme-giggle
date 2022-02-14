@@ -35,7 +35,9 @@ class Grid extends StatelessWidget {
                       clickGrid(index);
                     },
                     text: "${numbers[index]}",
-                    color: retro_colors[random.nextInt(retro_colors.length)])
+                    // color: retro_colors[random.nextInt(retro_colors.length)]
+                    color: color,
+                  )
                 : SizedBox.shrink();
           },
         ),

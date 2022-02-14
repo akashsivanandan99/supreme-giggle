@@ -1,16 +1,19 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:slidingpuzzle/themes/color_palettes.dart';
 
 class GridButton extends StatelessWidget {
-  const GridButton({
+  GridButton({
     Key? key,
     required this.click,
     required this.text,
-    required this.color,
+    this.color,
   }) : super(key: key);
 
   final VoidCallback click;
   final String text;
-  final Color color;
+  Color? color; //= retro_colors[Ramdp,.nextInt(retro_colors.length)];
 
   @override
   Widget build(BuildContext context) {

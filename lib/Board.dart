@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'widgets/Menu.dart';
 import 'widgets/MyTitle.dart';
 import 'widgets/Grid.dart';
+import 'themes/color_palettes.dart';
 
 class Board extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _BoardState extends State<Board> {
   bool isActive = false;
   Timer timer = Timer(Duration(seconds: 1), () {});
 
-  Color _color = Colors.white;
+  Color _color = Colors.blue;
 
   @override
   void initState() {
@@ -65,7 +66,7 @@ class _BoardState extends State<Board> {
         (index - 4 >= 0 && numbers[index - 4] == 0) ||
         (index + 4 < 16 && numbers[index + 4] == 0)) {
       setState(() {
-        final random = Random();
+        // final random = Random();
 
         // Generate a random width and height.
 
@@ -91,6 +92,7 @@ class _BoardState extends State<Board> {
     if (isActive) {
       setState(() {
         secondsPassed = secondsPassed + 1;
+        color = retro_colors[Random().nextInt(retro_colors.length)];
       });
     }
   }
