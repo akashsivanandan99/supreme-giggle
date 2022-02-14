@@ -13,7 +13,7 @@ class Menu extends StatelessWidget {
       : super(key: key);
 
   final int move;
-  final int secondsPassed;
+  final double secondsPassed;
   var size;
   final VoidCallback reset;
 
@@ -30,7 +30,7 @@ class Menu extends StatelessWidget {
             text: 'Reset',
           ),
           Move(move: move),
-          Time(secondsPassed: secondsPassed),
+          Time(secondsPassed: secondsPassed.round()),
         ],
       ),
     );

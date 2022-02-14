@@ -6,10 +6,11 @@ import 'package:slidingpuzzle/themes/color_palettes.dart';
 
 class Grid extends StatelessWidget {
   var numbers = [];
+  bool opacity;
   final size;
   Function clickGrid;
   Color color;
-  Grid(this.numbers, this.size, this.clickGrid, this.color);
+  Grid(this.numbers, this.size, this.clickGrid, this.color, this.opacity);
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +38,7 @@ class Grid extends StatelessWidget {
                     text: "${numbers[index]}",
                     // color: retro_colors[random.nextInt(retro_colors.length)]
                     color: color,
+                    opacity: opacity,
                   )
                 : SizedBox.shrink();
           },
