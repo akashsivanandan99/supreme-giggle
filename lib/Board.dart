@@ -80,8 +80,8 @@ class _BoardState extends State<Board> {
         //   1,
         // );
 
-        // color = Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-        //     .withOpacity(0.7);
+        _color =
+            Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(0.7);
         move++;
         numbers[numbers.indexOf(0)] = numbers[index];
         numbers[index] = 0;
