@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MyTitle extends StatelessWidget {
-  var size;
+  MyTitle({
+    Key? key,
+    this.size,
+  }) : super(key: key);
 
-  MyTitle(this.size);
+  var size;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class MyTitle extends StatelessWidget {
         style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: size.height * 0.050,
-            color: Colors.white,
+            color: Colors.black,
             decoration: TextDecoration.none),
       ),
     );
