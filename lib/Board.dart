@@ -14,12 +14,13 @@ class Board extends StatefulWidget {
 class _BoardState extends State<Board> {
   var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   int move = 0;
-  Color color = Colors.deepPurple;
+  Color color = Colors.blue;
   double secondsPassed = 0;
   bool isActive = false;
   Timer timer = Timer(Duration(milliseconds: 500), () {});
   // double v = 1.0;
   bool opacity = true;
+  bool change_colour = false;
   int count = 0;
   Color _color = Colors.white;
 
@@ -27,7 +28,7 @@ class _BoardState extends State<Board> {
   void initState() {
     super.initState();
     numbers.shuffle();
-    Timer.periodic(Duration(milliseconds: 500), (Timer t) => startTime());
+    Timer.periodic(Duration(milliseconds: 800), (Timer t) => startTime());
   }
 
   @override
@@ -53,6 +54,7 @@ class _BoardState extends State<Board> {
                 size: size,
                 clickGrid: clickGrid,
                 color: color,
+                change_colour: change_colour,
                 opacity: opacity),
             Menu(
               reset: reset,
@@ -101,18 +103,28 @@ class _BoardState extends State<Board> {
     if (isActive) {
       setState(() {
         secondsPassed = secondsPassed + 0.5;
-        if (secondsPassed == secondsPassed.toInt()) {
-          color = retro_colors[Random().nextInt(retro_colors.length)];
+        if (secondsPassed == secondsPassed.round()) {
+          // color = retro_colors[Random().nextInt(retro_colors.length)];
+          if (change_colour == false)
+            change_colour = true;
+          else if (change_colour == true) change_colour = false;
         }
-        count++;
-        if (count == 3) {
-          if (opacity == true) {
-            opacity = false;
-          } else if (opacity == false) {
-            opacity = true;
-          }
-          count = 0;
-        } else {}
+        // count++;
+        // if (count == 2) {
+        //   if (opacity == true) {
+        //     opacity = false;
+        //   } else if (opacity == false) {
+        //     opacity = true;
+        //   }
+        //   count = 0;
+        // } else {}
+
+        if (opacity == true) {
+          opacity = false;
+        } else if (opacity == false) {
+          opacity = true;
+        }
+        count = 0;
 
         // v = (v == 0 ? 1 : 0);
         // color = retro_colors[Random().nextInt(retro_colors.length)];

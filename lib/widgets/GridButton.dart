@@ -44,12 +44,14 @@ class GridButton extends StatelessWidget {
     required this.click,
     required this.opacity,
     required this.text,
+    this.change_color,
     this.color,
   }) : super(key: key);
 
   final VoidCallback click;
   final String text;
-  Color? color;
+  bool? change_color;
+  Color? color; //= retro_colors[Random().nextInt(retro_colors.length)];
   bool opacity;
 
   @override
@@ -66,7 +68,9 @@ class GridButton extends StatelessWidget {
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               )),
-              backgroundColor: MaterialStateProperty.all(color),
+              backgroundColor: MaterialStateProperty.all(change_color == true
+                  ? retro_colors[Random().nextInt(retro_colors.length)]
+                  : color),
               shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100.0)))),
           onPressed: click,

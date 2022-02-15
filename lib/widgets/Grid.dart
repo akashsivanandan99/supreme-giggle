@@ -12,7 +12,7 @@ class Grid extends StatelessWidget {
     required this.clickGrid,
     required this.color,
     this.size,
-    this.changeColour,
+    required this.change_colour,
   }) : super(key: key);
 
   var numbers = [];
@@ -20,7 +20,7 @@ class Grid extends StatelessWidget {
   final size;
   Function clickGrid;
   Color color;
-  VoidCallback? changeColour;
+  bool change_colour;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,10 @@ class Grid extends StatelessWidget {
                     },
                     text: "${numbers[index]}",
                     // color: retro_colors[random.nextInt(retro_colors.length)]
-                    color: color,
+                    // color: change_colour == true
+                    //     ? retro_colors[random.nextInt(retro_colors.length)]
+                    //     : color,
+                    change_color: change_colour,
                     opacity: opacity,
                   )
                 : SizedBox.shrink();
