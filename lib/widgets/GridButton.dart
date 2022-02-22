@@ -3,41 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:slidingpuzzle/themes/color_palettes.dart';
 
-// class GridButton extends StatelessWidget {
-//   GridButton({
-//     Key? key,
-//     required this.click,
-//     required this.text,
-//     this.color,
-//   }) : super(key: key);
-
-//   final VoidCallback click;
-//   required var opacity;
-//   final String text;
-//   Color? color; //= retro_colors[Ramdp,.nextInt(retro_colors.length)];
-
-// @override
-// Widget build(BuildContext context) {
-//   return AnimatedOpacity(
-//       opacity: opacity,
-//       duration: const Duration(milliseconds: 500),
-//       child: ElevatedButton(
-//         child: Text(
-//           text,
-//         ),
-//         style: ButtonStyle(
-//             textStyle: MaterialStateProperty.all(TextStyle(
-//               fontSize: 30,
-//               fontWeight: FontWeight.bold,
-//             )),
-//             backgroundColor: MaterialStateProperty.all(color),
-//             shape: MaterialStateProperty.all(RoundedRectangleBorder(
-//                 borderRadius: BorderRadius.circular(100.0)))),
-//         onPressed: click,
-//       ));
-// }
-// }
-
 class GridButton extends StatelessWidget {
   GridButton({
     Key? key,
@@ -68,9 +33,7 @@ class GridButton extends StatelessWidget {
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               )),
-              backgroundColor: MaterialStateProperty.all(change_color == true
-                  ? retro_colors[Random().nextInt(retro_colors.length)]
-                  : color),
+              backgroundColor: MaterialStateProperty.all(color),
               shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100.0)))),
           onPressed: click,
