@@ -10,7 +10,7 @@ class Grid extends StatelessWidget {
     required this.opacity,
     required this.numbers,
     required this.clickGrid,
-    required this.color,
+    required this.color_palette,
     this.size,
     required this.change_colour,
   }) : super(key: key);
@@ -19,7 +19,7 @@ class Grid extends StatelessWidget {
   bool opacity;
   final size;
   Function clickGrid;
-  Color color;
+  List<Color> color_palette;
   bool change_colour;
 
   @override
@@ -46,10 +46,8 @@ class Grid extends StatelessWidget {
                       clickGrid(index);
                     },
                     text: "${numbers[index]}",
-                    // color: retro_colors[random.nextInt(retro_colors.length)]
-                    // color: change_colour == true
-                    //     ? retro_colors[random.nextInt(retro_colors.length)]
-                    //     : color,
+                    color:
+                        color_palette[random.nextInt(color_palette.length - 1)],
                     change_color: change_colour,
                     opacity: opacity,
                   )
