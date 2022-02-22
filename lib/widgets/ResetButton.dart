@@ -22,7 +22,10 @@ class ResetButton extends StatelessWidget {
           )),
       child: Text(
         "Reset",
-        style: TextStyle(color: Colors.black),
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
