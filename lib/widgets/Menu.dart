@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ChangeThemeButton.dart';
 import 'Time.dart';
 import 'ResetButton.dart';
 import 'Move.dart';
@@ -9,6 +10,7 @@ class Menu extends StatelessWidget {
       required this.reset,
       required this.move,
       required this.secondsPassed,
+      required this.next,
       this.size})
       : super(key: key);
 
@@ -16,6 +18,7 @@ class Menu extends StatelessWidget {
   final double secondsPassed;
   var size;
   final VoidCallback reset;
+  final VoidCallback next;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,7 @@ class Menu extends StatelessWidget {
             reset: reset,
             text: 'Reset',
           ),
+          ChangeThemeButton(next: next),
           Move(move: move),
           Time(secondsPassed: secondsPassed.round()),
         ],
