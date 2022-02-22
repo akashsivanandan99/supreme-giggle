@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'widgets/Menu.dart';
 import 'widgets/MyTitle.dart';
 import 'widgets/Grid.dart';
-import 'themes/color_palettes.dart';
+import 'themes/color_palettes.dart' as color_palettes;
+import 'package:rive/rive.dart';
 
 class Board extends StatefulWidget {
   @override
@@ -18,11 +19,11 @@ class _BoardState extends State<Board> {
   double secondsPassed = 0;
   bool isActive = false;
   Timer timer = Timer(Duration(milliseconds: 500), () {});
-  // double v = 1.0;
   bool opacity = true;
   bool change_colour = false;
   int count = 0;
-  Color _color = Colors.white;
+  List<Color> _color = color_palettes.palettes[0];
+  int color_pos = 0;
 
   @override
   void initState() {
@@ -40,7 +41,8 @@ class _BoardState extends State<Board> {
       child: AnimatedContainer(
         height: size.height,
         decoration: BoxDecoration(
-          color: _color,
+          // color: _color,
+          color: _color[_color.length - 1],
         ),
         duration: const Duration(milliseconds: 500),
         curve: Curves.fastOutSlowIn,
@@ -53,7 +55,7 @@ class _BoardState extends State<Board> {
                 numbers: numbers,
                 size: size,
                 clickGrid: clickGrid,
-                color: color,
+                color_palette: _color,
                 change_colour: change_colour,
                 opacity: opacity),
             Menu(
@@ -61,6 +63,8 @@ class _BoardState extends State<Board> {
               move: move,
               secondsPassed: secondsPassed,
               size: size,
+              next: next_theme,
+              // next: next_theme,
             )
           ],
         ),
@@ -77,20 +81,6 @@ class _BoardState extends State<Board> {
         (index - 4 >= 0 && numbers[index - 4] == 0) ||
         (index + 4 < 16 && numbers[index + 4] == 0)) {
       setState(() {
-        // final random = Random();
-
-        // Generate a random width and height.
-
-        // Generate a random color.
-        // _color = Color.fromRGBO(
-        //   random.nextInt(256),
-        //   random.nextInt(256),
-        //   random.nextInt(256),
-        //   1,
-        // );
-
-        _color =
-            Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(0.7);
         move++;
         numbers[numbers.indexOf(0)] = numbers[index];
         numbers[index] = 0;
@@ -109,15 +99,6 @@ class _BoardState extends State<Board> {
             change_colour = true;
           else if (change_colour == true) change_colour = false;
         }
-        // count++;
-        // if (count == 2) {
-        //   if (opacity == true) {
-        //     opacity = false;
-        //   } else if (opacity == false) {
-        //     opacity = true;
-        //   }
-        //   count = 0;
-        // } else {}
 
         if (opacity == true) {
           opacity = false;
@@ -125,9 +106,6 @@ class _BoardState extends State<Board> {
           opacity = true;
         }
         count = 0;
-
-        // v = (v == 0 ? 1 : 0);
-        // color = retro_colors[Random().nextInt(retro_colors.length)];
       });
     }
   }
@@ -139,6 +117,15 @@ class _BoardState extends State<Board> {
       secondsPassed = 0;
       isActive = false;
     });
+  }
+
+  void next_theme() {
+    if (color_pos < color_palettes.palettes.length) {
+      color_pos++;
+      _color = color_palettes.palettes[color_pos];
+    } else
+      color_pos = 0;
+    _color = color_palettes.palettes[color_pos];
   }
 
   bool isSorted(List list) {
