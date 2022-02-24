@@ -39,6 +39,7 @@ class Grid extends StatelessWidget {
             crossAxisSpacing: 5,
           ),
           itemCount: numbers.length,
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return numbers[index] != 0
                 ? GridButton(
