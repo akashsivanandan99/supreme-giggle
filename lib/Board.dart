@@ -58,6 +58,9 @@ class _BoardState extends State<Board> {
                 color_palette: _color,
                 change_colour: change_colour,
                 opacity: opacity),
+            SizedBox(
+              height: 10,
+            ),
             Menu(
               reset: reset,
               move: move,
