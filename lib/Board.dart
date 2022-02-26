@@ -34,8 +34,7 @@ class _BoardState extends State<Board> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = const Size(800.0, 800.0);
-    //final size = MediaQuery.of(context).size;
+    Size size = const Size(1000.0, 1000.0);
 
     return SafeArea(
       child: AnimatedContainer(
@@ -44,7 +43,7 @@ class _BoardState extends State<Board> {
           // color: _color,
           color: _color[_color.length - 1],
         ),
-        duration: const Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 1000),
         curve: Curves.fastOutSlowIn,
         child: Column(
           children: <Widget>[
@@ -58,9 +57,6 @@ class _BoardState extends State<Board> {
                 color_palette: _color,
                 change_colour: change_colour,
                 opacity: opacity),
-            SizedBox(
-              height: 10,
-            ),
             Menu(
               reset: reset,
               move: move,
