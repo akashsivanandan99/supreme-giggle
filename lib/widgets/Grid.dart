@@ -28,10 +28,11 @@ class Grid extends StatelessWidget {
     var width = size.width;
     var random = Random();
     return Container(
-      height: height * 0.60,
+      height: height * 0.45,
       width: width * 0.60,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        // padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 12.0),
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
