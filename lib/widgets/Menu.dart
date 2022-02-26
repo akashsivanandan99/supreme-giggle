@@ -23,18 +23,31 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: size.height * 0.10,
+      height: size.height * 0.12,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          ResetButton(
-            reset: reset,
-            text: 'Reset',
+          Column(
+            children: [
+              Row(
+                children: [
+                  Move(move: move),
+                  SizedBox(width: 20),
+                  Time(secondsPassed: secondsPassed.round()),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  ResetButton(reset: reset),
+                  SizedBox(width: 5),
+                  ChangeThemeButton(next: next),
+                ],
+              ),
+              // Text("Reset"),
+            ],
           ),
-          ChangeThemeButton(next: next),
-          Move(move: move),
-          Time(secondsPassed: secondsPassed.round()),
         ],
       ),
     );
