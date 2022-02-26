@@ -14,25 +14,11 @@ class ResetButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: reset,
-      // style: ButtonStyle(
-      //     backgroundColor: MaterialStateProperty.all(Colors.white),
-      //     shape: MaterialStateProperty.all(
-      //       RoundedRectangleBorder(
-      //           borderRadius: new BorderRadius.circular(30.0)),
-      //     )),
       style: ElevatedButton.styleFrom(
         shape: CircleBorder(),
         primary: Colors.white,
         padding: EdgeInsets.all(10),
       ),
-      // child: Text(
-      //   "Reset",
-      //   style: TextStyle(
-      //     color: Colors.black,
-      //     fontWeight: FontWeight.bold,
-      //   ),
-      // ),
-
       child: Icon(
         Icons.replay,
         color: Colors.black,
