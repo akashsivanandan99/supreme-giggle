@@ -34,7 +34,7 @@ class _BoardState extends State<Board> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = const Size(1000.0, 1000.0);
+    Size size = const Size(800.0, 1050.0);
 
     return SafeArea(
       child: AnimatedContainer(
